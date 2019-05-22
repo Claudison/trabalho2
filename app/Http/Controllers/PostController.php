@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
     private $post;
 
     public function __construct(Post $post)
@@ -125,7 +126,7 @@ class PostController extends Controller
                 if (Storage::exists("posts/{$post->image}"))
                     Storage::delete("posts/{$post->image}");
             }
-            
+
             $name = kebab_case($request->title);
             $extension = $request->image->extension();
             $nameImage = "{$name}.$extension";
